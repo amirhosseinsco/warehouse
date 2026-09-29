@@ -1,0 +1,69 @@
+body{
+    margin-top: 50px;
+}
+
+.Navbar-div{
+    height: 50px;
+    display: flex;
+    justify-content: left;
+    padding: 0 20px;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f3f3f3;
+    border-bottom: 1px solid #dbdbdb;
+}
+.Navbar-div .NavbarBtns-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Navbar-div .NavbarBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    cursor: pointer;
+    color: #000;
+    font-weight: 500;
+}
+.Navbar-div .NavbarBtn.active{
+    color: #005296 !important;
+}
+.Navbar-div .NavbarBtn:hover{
+    color: #002c50 !important;
+}
+.Navbar-div .NavbarBtn svg{
+    margin-right: 3px;
+}
+
+.Productslist-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 80px);
+    padding: 100px 40px 0;
+}
+.Productslist-div .Productlisttable-div{
+    border: 1px solid #005296;
+    padding: 5px;
+}
+.Productslist-div .Productlisttable-div tbody{
+    padding: 2px;
+    border-right: 0.2px solid #dadada;
+    border-left: 0.2px solid #dadada;
+    border-bottom: 0.2px solid #dadada;
+}
+.Productslist-div .Productlisttable-div thead{
+    background-color: #005296;
+    border-radius: 5px;
+    padding: 2px;
+}
+.Productslist-div .Productlisttable-div thead tr td{
+    color: #fff;
+}
+.Productslist-div .Productlisttable-div tr td{
+    padding: 5px 15px;
+}
