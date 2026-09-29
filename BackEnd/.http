@@ -1,0 +1,60 @@
+# POST http://localhost:5050/products
+# Content-Type: application/json
+
+# {
+#     "name": "third product",
+#     "price": "10000",
+#     "quantity": "18",
+#     "warehouse_id": "1"
+# }
+
+# PUT http://localhost:5050/products/2
+# Content-Type: application/json
+
+# {
+#     "name": "second product",
+#     "price": "400000",
+#     "quantity": "198",
+#     "warehouse_id": "1"
+# }
+
+# DELETE http://localhost:5050/products/3
+
+# POST http://localhost:5050/users
+# Content-Type: application/json
+
+# {
+#     "name": "MAMAD",
+#     "email": "MAMAD@gmail.com",
+#     "password" : "12345678"
+# }
+
+# PUT http://localhost:5050/users/2
+# Content-Type: application/json
+
+# {
+#     "name": "Ali",
+#     "email": "Ali@gmail.com",
+#     "password" : "12345678"
+# }
+
+# DELETE http://localhost:5050/users/3
+
+
+# POST http://localhost:5050/warehouse
+# Content-Type: application/json
+
+# {
+#     "name": "second WareHouse",
+#     "address": "In the middle of nowhere"
+# }
+
+# PUT http://localhost:5050/warehouse/3
+# Content-Type: application/json
+
+# {
+#     "name": "second WareHouse",
+#     "address": "owhere"
+# }
+
+DELETE http://localhost:5050/warehouse/3
