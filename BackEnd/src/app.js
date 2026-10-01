@@ -15,11 +15,6 @@ app.use(cors({
 app.use(express.json());
 
 app.use("/products", productsRoutes);
-app.get("/", (req, res) => {
-    res.json({
-        message: "Hello"
-      });
-})
 app.use("/users", usersRoutes);
 app.use("/warehouse", warehouseRoutes);
 

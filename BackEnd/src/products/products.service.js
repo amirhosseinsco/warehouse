@@ -9,24 +9,10 @@ export async function GetProduct(id) {
 }
 
 export async function AddProduct(data) {
-    const warehouse = await productRepository.findWarehouseById(
-        data.warehouse_id
-    )
-    if (!warehouse) {
-        throw new Error("Warehouse not found");
-    }
-
     return productRepository.Create(data);
 }
 
 export async function UpdateProduct(productId ,data) {
-    const warehouse = await productRepository.findWarehouseById(
-        data.warehouse_id
-    )
-    if (!warehouse) {
-        throw new Error("Warehouse not found");
-    }
-
     return productRepository.Update(productId, data);
 }
 

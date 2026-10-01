@@ -1,5 +1,5 @@
 import * as userService from "./users.service.js";
-import { createUserSchema } from "./users.schema.js";
+import { createUserSchema, updateUserSchema } from "./users.schema.js";
 
 export async function GetUsersList(req, res) {
     try {
@@ -31,7 +31,15 @@ export async function GetUser(req, res) {
 
 export async function AddUser(req, res) {
     try {
-        const data = createUserSchema.parse(req.body);
+        const result = createUserSchema.safeParse(req.body);
+        
+        if (!result.success) {
+            return res.status(400).json({
+                message: "Invalid user data",
+                errors: result.error.issues,
+            });
+        }
+        const data = result.data;
 
         const user = await userService.AddUser(data);
 
@@ -40,7 +48,8 @@ export async function AddUser(req, res) {
         });
     } catch (error) {
         return res.status(500).json({
-            message: "Failed to create user"
+            message: "Failed to create user",
+            error: error,
         });
     }
 }
@@ -48,7 +57,15 @@ export async function AddUser(req, res) {
 export async function UpdateUser(req, res) {
     try {
         
-        const data = createUserSchema.parse(req.body);
+        const result = updateUserSchema.safeParse(req.body);
+        
+        if (!result.success) {
+            return res.status(400).json({
+                message: "Invalid user data",
+                errors: result.error.issues,
+            });
+        }
+        const data = result.data;
 
         const user = await userService.UpdateUser(req.params.id, data);
 

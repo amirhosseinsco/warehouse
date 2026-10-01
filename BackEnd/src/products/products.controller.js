@@ -1,5 +1,5 @@
 import * as productService from "./products.service.js";
-import { createProductSchema } from "./product.schema.js";
+import { createProductSchema, updateProductSchema} from "./product.schema.js";
 
 export async function GetProductsList(req, res) {
     try {
@@ -9,6 +9,7 @@ export async function GetProductsList(req, res) {
             products
         });
     } catch (error) {
+        console.log(error);
         return res.status(500).json({
             message: "Failed to get products"
         });
@@ -32,7 +33,15 @@ export async function GetProduct(req, res) {
 export async function AddProduct(req, res) {
     try {
         
-        const data = createProductSchema.parse(req.body);
+        const result = createProductSchema.safeParse(req.body);
+
+        if (!result.success) {
+            return res.status(400).json({
+                message: "Invalid product data",
+                errors: result.error.issues,
+            });
+        }
+        const data = result.data;
 
         const product = await productService.AddProduct(data);
 
@@ -40,8 +49,10 @@ export async function AddProduct(req, res) {
             message: "Product created successfully"
         });
     } catch (error) {
+    
         return res.status(500).json({
-            message: "Failed to create product"
+            message: "Failed to create product",
+            error: error,
         });
     }
 }
@@ -49,8 +60,16 @@ export async function AddProduct(req, res) {
 export async function UpdateProduct(req, res) {
     try {
 
-        const data = createProductSchema.parse(req.body);
+        const result = updateProductSchema.safeParse(req.body);
 
+        if (!result.success) {
+            return res.status(400).json({
+                message: "Invalid product data",
+                errors: result.error.issues,
+            });
+        }
+        const data = result.data;
+        
         const product = await productService.UpdateProduct(req.params.id, data);
 
         return res.status(201).json({
@@ -58,7 +77,7 @@ export async function UpdateProduct(req, res) {
         });
     } catch (error) {
         return res.status(500).json({
-            message: "Failed to update product"
+            message: "Failed to update product",
         });
     }
 }

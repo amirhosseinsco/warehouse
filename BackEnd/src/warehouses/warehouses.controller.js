@@ -1,5 +1,5 @@
 import * as warehouseService from "./warehouses.service.js";
-import { createWarehouseSchema } from "./warehouses.schema.js";
+import { createWarehouseSchema, updateWarehouseSchema} from "./warehouses.schema.js";
 
 export async function GetWarehousesList(req, res) {
     try {
@@ -32,16 +32,25 @@ export async function GetWarehouse(req, res) {
 export async function AddWarehouse(req, res) {
     try {
         
-        const data = createWarehouseSchema.parse(req.body);
+        const result = createWarehouseSchema.safeParse(req.body);
 
+        if (!result.success) {
+            return res.status(400).json({
+                message: "Invalid warehouse data",
+                errors: result.error.issues,
+            });
+        }
+        const data = result.data;
         const warehouse = await warehouseService.AddWarehouse(data);
 
         return res.status(201).json({
             message: "warehouse created successfully",
         });
     } catch (error) {
+        console.log(error);
         return res.status(500).json({
-            message: "Failed to create warehouse"
+            message: "Failed to create warehouse",
+            error : error
         });
     }
 }
@@ -49,7 +58,15 @@ export async function AddWarehouse(req, res) {
 export async function UpdateWarehouse(req, res) {
     try {
         
-        const data = createWarehouseSchema.parse(req.body);
+        const result = updateWarehouseSchema.safeParse(req.body);
+
+        if (!result.success) {
+            return res.status(400).json({
+                message: "Invalid warehouse data",
+                errors: result.error.issues,
+            });
+        }
+        const data = result.data;
 
         const warehouse = await warehouseService.UpdateWarehouse(req.params.id ,data);
 

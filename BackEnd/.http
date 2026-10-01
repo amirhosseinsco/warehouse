@@ -2,59 +2,65 @@
 # Content-Type: application/json
 
 # {
-#     "name": "third product",
-#     "price": "10000",
-#     "quantity": "18",
-#     "warehouse_id": "1"
+#   "barcode": "121246851",
+#   "internal_code": "PROD-001",
+#   "name": "second product",
+#   "category_id": 1,
+#   "brand_id": 1,
+#   "selling_price": 20000,
+#   "status": "ACTIVE"
 # }
 
-# PUT http://localhost:5050/products/2
+# PUT http://localhost:5050/products/1
 # Content-Type: application/json
 
 # {
-#     "name": "second product",
-#     "price": "400000",
-#     "quantity": "198",
-#     "warehouse_id": "1"
+#   "name": "first product"
 # }
 
-# DELETE http://localhost:5050/products/3
+# DELETE http://localhost:5050/products/5
 
 # POST http://localhost:5050/users
 # Content-Type: application/json
 
 # {
-#     "name": "MAMAD",
-#     "email": "MAMAD@gmail.com",
-#     "password" : "12345678"
+#   "username": "mohammad",
+#   "email": "mohammad@example.com",
+#   "phone": "09121232110",
+#   "password": "Aa12345678",
+#   "first_name": "Amirhossein",
+#   "last_name": "Babaei"
 # }
 
-# PUT http://localhost:5050/users/2
+# PUT http://localhost:5050/users/5
 # Content-Type: application/json
 
 # {
-#     "name": "Ali",
-#     "email": "Ali@gmail.com",
-#     "password" : "12345678"
+#   "username": "ali"
 # }
 
-# DELETE http://localhost:5050/users/3
+# DELETE http://localhost:5050/users/5
 
 
 # POST http://localhost:5050/warehouse
 # Content-Type: application/json
 
 # {
-#     "name": "second WareHouse",
-#     "address": "In the middle of nowhere"
+#   "code": "WH-002",
+#   "name": "second Warehouse",
+#   "warehouse_type": "MAIN",
+#   "status": "ACTIVE",
+#   "address_line_1": "123 Main Street",
+#   "city": "Frankfurt",
+#   "country": "Germany",
+#   "timezone": "Europe/Berlin"
 # }
 
 # PUT http://localhost:5050/warehouse/3
 # Content-Type: application/json
 
 # {
-#     "name": "second WareHouse",
-#     "address": "owhere"
+#     "name": "WareHouse"
 # }
 
 DELETE http://localhost:5050/warehouse/3
