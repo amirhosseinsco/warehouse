@@ -2,12 +2,12 @@
 # Content-Type: application/json
 
 # {
-#   "barcode": "121246851",
-#   "internal_code": "PROD-001",
+#   "barcode": "24568164",
+#   "internal_code": "PROD-002",
 #   "name": "second product",
 #   "category_id": 1,
 #   "brand_id": 1,
-#   "selling_price": 20000,
+#   "selling_price": 95000,
 #   "status": "ACTIVE"
 # }
 
@@ -63,4 +63,23 @@
 #     "name": "WareHouse"
 # }
 
-DELETE http://localhost:5050/warehouse/3
+# DELETE http://localhost:5050/warehouse/3
+
+# POST http://localhost:5050/inventory
+# Content-Type: application/json
+
+# {
+#   "product_id": 6,
+#   "warehouse_id": 2,
+#   "quantity": 100,
+#   "stock_status": "IN_STOCK"
+# }
+
+# PUT http://localhost:5050/inventory/6
+# Content-Type: application/json
+
+# {
+#   "reserved_quantity": "10"
+# }
+
+# DELETE http://localhost:5050/inventory/6

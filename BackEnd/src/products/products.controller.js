@@ -9,7 +9,6 @@ export async function GetProductsList(req, res) {
             products
         });
     } catch (error) {
-        console.log(error);
         return res.status(500).json({
             message: "Failed to get products"
         });

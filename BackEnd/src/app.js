@@ -3,6 +3,7 @@ import cors from "cors";
 import productsRoutes  from "./products/products.routes.js";
 import usersRoutes  from "./users/users.routes.js";
 import warehouseRoutes  from "./warehouses/warehouses.routes.js";
+import inventoryRoutes  from "./inventory/inventory.routes.js";
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use("/products", productsRoutes);
 app.use("/users", usersRoutes);
 app.use("/warehouse", warehouseRoutes);
+app.use("/inventory", inventoryRoutes);
 
 
 export default app;
